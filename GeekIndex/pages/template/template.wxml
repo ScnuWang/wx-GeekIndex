@@ -1,0 +1,65 @@
+<template name="catetoryList">
+    <block wx:for="{{catetorys}}">
+        <view class="movie">
+            <view class="movie-info">
+                <view class="base-info">
+                    <text >{{item.categoryName}}</text>|
+                    <text>{{item.recentMoney}}</text>|
+                    <text>{{item.recentMoneyRank}}</text>|
+                    <text>{{item.totalMoney}}</text>|
+                    <text>{{item.totalMoneyRank}}</text>
+                </view>
+            </view>
+        </view>
+    </block>
+</template>
+<template name="productList">
+  <block wx:for="{{products}}" wx:for-index="key" wx:for-item="value">
+      <view class="product">
+            <!--点击图片跳转到详情页并将产品的编号传递-->
+              <view bindtap="detailproduct" id="{{value.pkId}}">
+                  <view class="pic">
+                      <image src="{{value.productImage}}" model="aspectFit" />
+                  </view>
+              </view>
+              <view class="product-info">
+                <view class="base-info">
+                  <view >产品名称：{{value.productName}}</view>
+                  <view  wx:if="{{value.website==1}}">众筹平台：淘宝众筹</view >
+                  <view  wx:if="{{value.website==2}}">众筹平台：京东众筹</view >
+                  <view>众筹状态：{{value.productStatus}}</view>
+                  <view>已筹金额：{{value.currMoney}}￥</view>
+                  <view>支持人数：{{value.supportPerson}}</view>
+                </view>
+             </view>
+        </view>
+    </block>
+</template>
+<template name="productDetail">
+      <view class="product">
+              <view class="pic">
+                  <image src="{{product.productImage}}" model="aspectFit" />
+              </view>
+          <view class="product-info">
+            <view class="base-info">
+              <!--产品名称-->
+              <view >产品名称：{{product.productName}}</view>
+              <!--众筹平台-->
+              <view  wx:if="{{product.website==1}}">众筹平台：淘宝众筹</view >
+              <view  wx:if="{{product.website==2}}">众筹平台：京东众筹</view >
+              <!--众筹状态-->
+              <view>众筹状态：{{product.productStatus}}</view>
+              <!--已筹金额-->
+              <view>已筹金额：{{product.currMoney}}￥</view>
+              <!--目标金额-->
+              <view>目标金额：{{product.targetMoney}}￥</view>
+              <!--产品目标价格-->
+              <view>产品目标价格：{{product.itemCorePrice}}￥</view>
+              <!--项目发起人-->
+              <view>项目发起人：{{product.personName}}</view>
+              <!--产品简介-->
+              <view>产品简介：{{product.personDesc}}</view>
+            </view>
+          </view>
+    </view>
+</template>

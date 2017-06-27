@@ -1,0 +1,6 @@
+/* pages/index/productDetail.wxss */
+@import "../index/index.wxss";
+.charts {
+    background-color: #fff;
+    min-height: 100%;
+}

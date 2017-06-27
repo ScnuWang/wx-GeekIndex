@@ -1,0 +1,32 @@
+<!--<view style="text-align:center">
+    <image src="https://s3.cn-north-1.amazonaws.com.cn/imgs/applet/geekcat.jpg" style="width:50px;height:50px;"></image>
+</view>-->
+<view class="base-info" style="text-align:center">已收录{{productcount}}个项目</view>
+<view class="content">
+    <view class="search">
+        <input class="input" placeholder="寻找最热硬件" bindinput="bindKeyInput" />
+        <button bindtap="search" type="primary" hover-class="btnClick"> 查 询 </button>
+    </view>
+    <!--<text class="inputShow">{{inputVal}}</text>-->
+</view>
+<view class="base-info">热门项目：</view>
+<block wx:for="{{hotproducts}}" wx:for-index="key" wx:for-item="value">  
+        <view class="product">
+            <!--点击图片跳转到详情页并将产品的编号传递-->
+              <view bindtap="detailproduct" id="{{value.pkId}}">
+                  <view class="pic">
+                      <image src="{{value.productImage}}" model="aspectFit" />
+                  </view>
+              </view>
+              <view class="product-info">
+                <view class="base-info">
+                  <view >产品名称：{{value.productName}}</view>
+                  <view  wx:if="{{value.website==1}}">众筹平台：淘宝众筹</view >
+                  <view  wx:if="{{value.website==2}}">众筹平台：京东众筹</view >
+                  <view>众筹状态：{{value.productStatus}}</view>
+                  <view>已筹金额：{{value.currMoney}}￥</view>
+                  <view>支持人数：{{value.supportPerson}}</view>
+                </view>
+             </view>
+        </view>
+</block>

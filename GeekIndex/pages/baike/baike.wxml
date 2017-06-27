@@ -1,0 +1,7 @@
+<!--baike.wxml-->
+<block wx:for="{{tittles}}" wx:for-index="key" wx:for-item="value">
+    <view bindtap="detailarticle" id="{{value.id}}">
+        <view >{{value.tittle}}</view>
+     </view>
+</block>
+

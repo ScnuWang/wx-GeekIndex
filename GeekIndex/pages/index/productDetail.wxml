@@ -1,0 +1,9 @@
+<view>
+    <import src="../template/template.wxml"/>
+    <template is="productDetail" data="{{product}}"/>
+</view>
+<view class="base-info">产品金额及支持人数变化曲线：</view>
+<view class="charts">
+     <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+    <canvas canvas-id="suportchange" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+</view>

@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/searchResult",
+    "pages/index/productDetail",
+    "pages/todayRank/todayRank",
+    "pages/about/about",
+    "pages/moreRank/moreRank",
+    "pages/baike/baike",
+    "pages/baike/acticleDetail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "极客视界",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/todayRank/todayRank",
+        "text": "今日榜单"
+      },
+      {
+        "pagePath": "pages/baike/baike",
+        "text": "众筹百科"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "关于我们"
+      }
+    ]
+  },
+  "debug": true
+}
