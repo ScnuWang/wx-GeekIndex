@@ -24,7 +24,7 @@ Page({
     wx.request({
       url: 'http://54.223.181.88/show/wxsingledatas',
       success:function(res){
-        console.log(res.data.hotproducts)
+        // console.log(res.data.hotproducts)
          //这里不能直接使用this
         page.setData({
           "productcount": res.data.productcount,
@@ -33,14 +33,16 @@ Page({
       }
     })
   },
-  detailproduct(e) {//跳转到产品详情页
+  //跳转到产品详情页
+  detailproduct(e) {
     var id = e.currentTarget.id;
     app.detailproductid = id;
-    console.log(id);
+    // console.log(id);
     wx.navigateTo({
       url: '/pages/index/productDetail',
     })
   },
+  // 产品分类关键字查询
   search() {
     var page = this;
     var queryStr = page.data.inputVal;

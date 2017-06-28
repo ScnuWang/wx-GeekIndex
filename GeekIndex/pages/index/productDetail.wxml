@@ -2,8 +2,57 @@
     <import src="../template/template.wxml"/>
     <template is="productDetail" data="{{product}}"/>
 </view>
-<view class="base-info">产品金额及支持人数变化曲线：</view>
-<view class="charts">
-     <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-    <canvas canvas-id="suportchange" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-</view>
+
+
+		<view class="tab">
+			<view class="tab-nav">
+      <!--数组下表默认为index-->
+				<text wx:for="{{tabnav.tabitem}}" bindtap="setTab" class="{{showtab==index?'active':''}}" data-tabindex="{{index}}" data-type="{{item.type}}" wx:key="{{item.type}}">{{item.text}}</text>
+				<view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
+			</view>
+			<view class="tab-content"  style="width: {{tabnav.tabnum*100}}%;transform:translateX(-{{showtab*100/tabnav.tabnum}}%);margin-left: {{marginleft}}px;">
+				<view class="tab-panel">
+					<view class="test-list">
+            <!--产品走势-->
+            <view class="charts">
+                <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+                <canvas canvas-id="suportchange" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+            </view>
+					</view>
+				</view>
+        <!--竞争者-->
+				<view class="tab-panel">
+					<view class="test-list">
+              <view>
+                  <import src="../template/template.wxml"/>
+                  <template is="productList" data="{{products}}"/>
+              </view>
+					</view>
+				</view>
+        <!--行业比较-->
+				<view class="tab-panel">
+					<view class="test-list">
+              <view class="base-info">
+                  <view >所属行业：{{catetorytstat.categoryName}}</view>
+                  已筹金额：
+                  <view>同行业平均水平：{{catetorytstat.moneyAvg}}</view>
+                  <view>同行业最高水平：{{catetorytstat.moneyMax}}</view>
+                  <view>同行业最低水平：{{catetorytstat.moneyMax}}</view>
+                  项目完成率：
+                  <view>同行业平均水平：{{catetorytstat.finishAvg}}</view>
+                  <view>同行业最高水平：{{catetorytstat.finishMax}}</view>
+                  <view>同行业最低水平：{{catetorytstat.finishMin}}</view>
+                  支持者：
+                  <view>同行业平均水平：{{catetorytstat.supportAvg}}</view>
+                  <view>同行业最高水平：{{catetorytstat.supportMax}}</view>
+                  <view>同行业最低水平：{{catetorytstat.supportMin}}</view>
+                  人均支持：
+                  <view>同行业平均水平：{{catetorytstat.capitaAvg}}</view>
+                  <view>同行业最高水平：{{catetorytstat.capitaMax}}</view>
+                  <view>同行业最低水平：{{catetorytstat.capitaMin}}</view>
+            </view>
+				</view>
+			</view>
+		</view>
+  </view>
+

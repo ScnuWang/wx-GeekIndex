@@ -9,6 +9,7 @@
     </view>
     <!--<text class="inputShow">{{inputVal}}</text>-->
 </view>
+
 <view class="base-info">热门项目：</view>
 <block wx:for="{{hotproducts}}" wx:for-index="key" wx:for-item="value">  
         <view class="product">
