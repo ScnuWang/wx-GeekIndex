@@ -31,7 +31,6 @@ Page({
     showtab: 0,  //顶部选项卡索引
     showtabtype: '', //选中类型
     tabnav: {},  //顶部选项卡数据
-    testdata3: [], //面板3的数据
     critical: 100, //触发切换标签的临界值
     marginleft: 0,  //滑动距离
   },
@@ -53,7 +52,7 @@ Page({
     // console.log(productid)
     // 根据产品编号查询详情
     wx.request({
-      url: 'http://54.223.181.88/show/productdetail?pkId=' + productid,
+      url: 'https://weixin.geekview.cn/show/productdetail?pkId=' + productid,
       success:function(res){
           // console.log(res.data)
           page.setData({
@@ -63,7 +62,7 @@ Page({
     });
     // 根据产品编号查询竞争者产品列表以及行业比较
     wx.request({
-      url: 'http://54.223.181.88/show/getcompetitor?pkId=' + productid,
+      url: 'https://weixin.geekview.cn/show/getcompetitor?pkId=' + productid,
       success: function (res) {
         // console.log(res.data.catetorytstat)
         page.setData({
@@ -80,7 +79,7 @@ Page({
     var growthmoney = [];
     var growthsupport = [];
     wx.request({
-      url: 'http://54.223.181.88/show/productchange?pkId=' + productid,
+      url: 'https://weixin.geekview.cn/show/productchange?pkId=' + productid,
       success: function (res) {
         // console.log(res.data.moneychange[1][0])
         var len = res.data.moneychange.length;
@@ -98,7 +97,7 @@ Page({
           "growthmoney": growthmoney,
           "growthsupport": growthsupport
         });
-        console.log(time)
+        // console.log(time)
         if(len>0){
            page.show(time, currentmoey, supportpeople, growthmoney, growthsupport);
         }
@@ -111,14 +110,17 @@ Page({
         tabitem: [
           {
             "id": 1,
+            "type": "A",
             "text": "产品走势"
           },
           {
             "id": 2,
+            "type": "B",
             "text": "竞争者"
           },
           {
             "id": 3,
+            "type": "C",
             "text": "行业比较"
           },
         ]
@@ -142,7 +144,7 @@ Page({
       showtabtype: edata.type
     })
   },
-
+  
 
 
 

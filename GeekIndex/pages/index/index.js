@@ -22,7 +22,7 @@ Page({
   loaddata: function () {//已收录项目
     var page = this;
     wx.request({
-      url: 'http://54.223.181.88/show/wxsingledatas',
+      url: 'https://weixin.geekview.cn/show/wxsingledatas',
       success:function(res){
         // console.log(res.data.hotproducts)
          //这里不能直接使用this
@@ -52,7 +52,7 @@ Page({
     } else {
       page.setData({ loadingHidden: false });
       wx.request({
-        url: "http://54.223.181.88/show/searchproduct?keyword=" + queryStr,
+        url: "https://weixin.geekview.cn/show/searchproduct?keyword=" + queryStr,
         //data: { count: 50 },
         success: function (res) {
           // console.log(res.data)

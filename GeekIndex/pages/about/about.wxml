@@ -1,6 +1,7 @@
-<!--about.wxml-->
 <view>【关于我们】：极客视界（深圳市极客视界科技有限公司），一个极客的网络服务平台。通过引入创新的资讯来发现价值，通过支持创新项目来创造新的价值，通过各个媒体平台来传播价值，通过移动互联来网聚极客精神。</view>
 <view>【转载合作】：转载文章请说明出处，并在原文链接里留下我们的文章链接</view>
 <view>【广告商务】：vincent.lin@geekview.cn，加微信 450636843</view>
 <view>【投稿】：注册登录www.geekview.cn，“分享新发现”</view>
+<view style="text-align:center">
 <image src="https://s3.cn-north-1.amazonaws.com.cn/official/resource/images/happy-hungry.jpg" style="width: 200px; height: 200px;"></image>
+</view>
