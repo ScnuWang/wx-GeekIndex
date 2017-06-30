@@ -12,9 +12,9 @@
 
 <view class="base-info">热门项目：</view>
 <block wx:for="{{hotproducts}}" wx:for-index="key" wx:for-item="value">  
-        <view class="product">
+        <view class="product" bindtap="detailproduct" id="{{value.pkId}}">
             <!--点击图片跳转到详情页并将产品的编号传递-->
-              <view bindtap="detailproduct" id="{{value.pkId}}">
+              <view >
                   <view class="pic">
                       <image src="{{value.productImage}}" model="aspectFit" />
                   </view>

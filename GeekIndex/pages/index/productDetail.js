@@ -64,7 +64,9 @@ Page({
     wx.request({
       url: 'https://weixin.geekview.cn/show/getcompetitor?pkId=' + productid,
       success: function (res) {
-        // console.log(res.data.catetorytstat)
+        
+        console.log(res.data.catetorytstat)
+        
         page.setData({
           "products": res.data.products,
           "catetorytstat": res.data.catetorytstat

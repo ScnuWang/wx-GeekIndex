@@ -37,7 +37,7 @@ Page({
   detailproduct(e) {
     var id = e.currentTarget.id;
     app.detailproductid = id;
-    // console.log(id);
+    console.log(id);
     wx.navigateTo({
       url: '/pages/index/productDetail',
     })
