@@ -26,7 +26,9 @@ Page({
     growthmoney: [],
     // 当日净增支持人数
     growthsupport: [],
-    
+    // 判读是否有数据
+    len:"",
+
 
     showtab: 0,  //顶部选项卡索引
     showtabtype: '', //选中类型
@@ -97,7 +99,8 @@ Page({
           "currentmoey": currentmoey,
           "supportpeople": supportpeople,
           "growthmoney": growthmoney,
-          "growthsupport": growthsupport
+          "growthsupport": growthsupport,
+          "len":len
         });
         // console.log(time)
         if(len>0){

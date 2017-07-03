@@ -14,8 +14,10 @@
 				<view class="tab-panel">
             <!--产品走势-->
             <view class="charts">
+                <view wx:if="{{len<=0}}" style="text-align:center;">暂无数据</view>
                 <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
                 <canvas canvas-id="suportchange" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+                
             </view>
 				</view>
         <!--竞争者-->
