@@ -19,13 +19,11 @@
   <block wx:for="{{products}}" wx:for-index="key" wx:for-item="value">
       <view class="product" bindtap="detailproduct" id="{{value.pkId}}">
             <!--点击图片跳转到详情页并将产品的编号传递-->
-              <view >
                   <view class="pic">
-                      <image src="{{value.productImage}}" model="aspectFit" />
+                      <image style="width:130px;height:130px;" src="{{value.productImage}}" model="aspectFit" />
                   </view>
-              </view>
               <view class="product-info">
-                <view class="base-info">
+                <view class="text-info">
                   <view >产品名称：{{value.productName}}</view>
                   <view  wx:if="{{value.website==1}}">众筹平台：淘宝众筹</view >
                   <view  wx:if="{{value.website==2}}">众筹平台：京东众筹</view >
@@ -41,10 +39,10 @@
 <template name="productDetail">
       <view class="product">
               <view class="pic">
-                  <image src="{{product.productImage}}" model="aspectFit" />
+                  <image style="width:130px;height:130px;" src="{{product.productImage}}" model="aspectFit" />
               </view>
           <view class="product-info">
-            <view class="base-info">
+            <view class="text-info">
               <!--产品名称-->
               <view >产品名称：{{product.productName}}</view>
               <!--众筹平台-->

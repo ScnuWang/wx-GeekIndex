@@ -3,33 +3,73 @@
     background-color: #fff;
     min-height: 100%;
 }
+
+page{
+	/*height: 100%;*/
+	background: #f6f8fa;
+	color: #333;
+  display: -webkit-flex;
+  /*display: flex;*/
+  flex-direction: column;
+ 	font: normal 30rpx/1.68 -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
+}
+
 .product{
-    display: -webkit-flex;
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
-    margin: 5px 3px;
+    margin: 5px 20px;
     box-shadow: 0 2px 5px #ccc;
-    background-color: #FFFFFF;
+    background-color: #fff;
     padding-left: 5px;
+    justify-content:space-between;
 }
-.pic image{
-    width:130px;
-    height: 130px;
-    padding-top: 10px;
+.first{
+    display: flex;
+    align-items: center;
 }
-.product-info{
-    padding-left: 10px;
+.second{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    max-width: 120px;
 }
-.base-info{
-    color:#2F4F4F;
+.third{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 10px;
+    min-width: 150px;
+}
+.image{
+    width:20px;
+    height: 20px;
+    padding-top: 35px;
+}
+.productimage{
+    width:30px;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.text-info{
+    /*color:#000;
     font-size: 12px;
-    padding-top: 8px;
     line-height: 20px;
+    text-overflow: ellipsis;
+    flex-wrap: nowrap;*/
+    font-size: 12px;
+	  color: #888;
+	  display: -webkit-box;
+	  -webkit-line-clamp: 1;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  -webkit-box-orient: vertical;
+    
 }
 
 .search{
-    display: -webkit-flex;
     display: flex;
     padding: 5px;
     font-size: 18px;
