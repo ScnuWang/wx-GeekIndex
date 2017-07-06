@@ -2,54 +2,51 @@
     <import src="../template/template.wxml"/>
     <template is="productDetail" data="{{product}}"/>
 </view>
-<view class="container">
-	<view class="container-body">
-		<view class="tab">
-			<view class="tab-nav">
-      <!--数组下表默认为index-->
-				<text wx:for="{{tabnav.tabitem}}" bindtap="setTab" class="{{showtab==index?'active':''}}" data-tabindex="{{index}}" data-type="{{item.type}}" wx:key="{{item.type}}">{{item.text}}</text>
-				<view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
-			</view>
-			<view class="tab-content"  style="width: {{tabnav.tabnum*100}}%;transform:translateX(-{{showtab*100/tabnav.tabnum}}%);margin-left: {{marginleft}}px;">
-				<view class="tab-panel">
-            <!--产品走势-->
-            <view class="charts">
-                <view wx:if="{{len<=0}}" style="text-align:center;">暂无数据</view>
+<view class="swiper-tab">
+ <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">产品走势</view>
+ <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">竞争者</view>
+ <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">行业比较</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+ <swiper-item>
+  <view class="charts">
                 <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
                 <canvas canvas-id="suportchange" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-                
             </view>
-				</view>
-        <!--竞争者-->
-				<view class="tab-panel">
-              <view>
+ </swiper-item>
+ <swiper-item>
+  <view>
                   <import src="../template/template.wxml"/>
                   <template is="productList" data="{{products}}"/>
               </view>
-				</view>
-        <!--行业比较-->
-				<view class="tab-panel">
-              <view class="competitor">
-                  <view class="competitor-tittle">所属行业：{{catetorytstat.categoryName}}</view>
-                  <view class="competitor-tittle">已筹金额：</view>
-                  <view>同行业平均水平：{{catetorytstat.moneyAvg}}</view>
-                  <view>同行业最高水平：{{catetorytstat.moneyMax}}</view>
-                  <view>同行业最低水平：{{catetorytstat.moneyMin}}</view>
-                  <view class="competitor-tittle">项目完成率：</view>
-                  <view>同行业平均水平：{{catetorytstat.finishAvg}}</view>
-                  <view>同行业最高水平：{{catetorytstat.finishMax}}</view>
-                  <view>同行业最低水平：{{catetorytstat.finishMin}}</view>
-                  <view class="competitor-tittle">支持者：</view>
-                  <view>同行业平均水平：{{catetorytstat.supportAvg}}</view>
-                  <view>同行业最高水平：{{catetorytstat.supportMax}}</view>
-                  <view>同行业最低水平：{{catetorytstat.supportMin}}</view>
-                  <view class="competitor-tittle">人均支持：</view>
-                  <view>同行业平均水平：{{catetorytstat.capitaAvg}}</view>
-                  <view>同行业最高水平：{{catetorytstat.capitaMax}}</view>
-                  <view>同行业最低水平：{{catetorytstat.capitaMin}}</view>
-             </view>
-			  </view>
-		</view>
-  </view>
-</view>
-</view>
+ </swiper-item>
+ <swiper-item>
+  <view class="competitor">
+      <view style="color:#f7982a;font-size: 16px;padding-left: 5%;padding-top: 8px;">所属行业：{{catetorytstat.categoryName}}</view>
+      <view class="competitor-tittle" >已筹金额（元）</view>
+      <view class="competitor-context">
+        <view>同行业平均水平：{{catetorytstat.moneyAvg}}</view>
+        <view>同行业最高水平：{{catetorytstat.moneyMax}}</view>
+        <view>同行业最低水平：{{catetorytstat.moneyMin}}</view>
+      </view>
+      <view class="competitor-tittle">项目完成率（%）</view>
+      <view class="competitor-context">
+        <view>同行业平均水平：{{catetorytstat.finishAvg}}</view>
+        <view>同行业最高水平：{{catetorytstat.finishMax}}</view>
+        <view>同行业最低水平：{{catetorytstat.finishMin}}</view>
+       </view>
+      <view class="competitor-tittle">支持者（人）</view>
+      <view class="competitor-context">
+        <view>同行业平均水平：{{catetorytstat.supportAvg}}</view>
+        <view>同行业最高水平：{{catetorytstat.supportMax}}</view>
+        <view>同行业最低水平：{{catetorytstat.supportMin}}</view>
+      </view>
+      <view class="competitor-tittle">人均支持（元）</view>
+      <view class="competitor-context">
+        <view>同行业平均水平：{{catetorytstat.capitaAvg}}</view>
+        <view>同行业最高水平：{{catetorytstat.capitaMax}}</view>
+        <view>同行业最低水平：{{catetorytstat.capitaMin}}</view>
+      </view>
+   </view>
+ </swiper-item>
+</swiper>

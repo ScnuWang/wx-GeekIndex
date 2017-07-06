@@ -26,15 +26,12 @@ Page({
     growthmoney: [],
     // 当日净增支持人数
     growthsupport: [],
-    // 判读是否有数据
-    len:"",
-
-
-    showtab: 0,  //顶部选项卡索引
-    showtabtype: '', //选中类型
-    tabnav: {},  //顶部选项卡数据
-    critical: 100, //触发切换标签的临界值
-    marginleft: 0,  //滑动距离
+    
+    // 页面配置  
+    winWidth: 0,
+    winHeight: 0,
+    // tab切换 
+    currentTab: 0, 
   },
   touchHandler: function (e) {
     // console.log(lineChart.getCurrentDataIndex(e));
@@ -45,11 +42,37 @@ Page({
       // background: '#7cb5ec'
     });
   },
+
+  // 滑动切换tab 
+  bindChange: function (e) {
+    var that = this;
+    that.setData({ currentTab: e.detail.current });
+  },
+  // 点击tab切换 
+  swichNav: function (e) {
+    var that = this;
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var page = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        page.setData({
+          winWidth: res.windowWidth,
+          winHeight: res.windowHeight
+        });
+      }
+    }); 
     var productid = getApp().detailproductid;
     // console.log(productid)
     // 根据产品编号查询详情
@@ -99,8 +122,7 @@ Page({
           "currentmoey": currentmoey,
           "supportpeople": supportpeople,
           "growthmoney": growthmoney,
-          "growthsupport": growthsupport,
-          "len":len
+          "growthsupport": growthsupport
         });
         // console.log(time)
         if(len>0){
@@ -108,29 +130,6 @@ Page({
         }
       }
     });
-    // 内置选项卡
-    page.setData({
-      tabnav: {
-        tabnum: 3,
-        tabitem: [
-          {
-            "id": 1,
-            "type": "A",
-            "text": "产品走势"
-          },
-          {
-            "id": 2,
-            "type": "B",
-            "text": "竞争者"
-          },
-          {
-            "id": 3,
-            "type": "C",
-            "text": "行业比较"
-          },
-        ]
-      },
-    })
   },
   //跳转到产品详情页
   detailproduct(e) {
@@ -141,17 +140,6 @@ Page({
       url: '/pages/index/productDetail',
     })
   },
-  //设置选项卡选中索引
-  setTab: function (e) { 
-    const edata = e.currentTarget.dataset;
-    this.setData({
-      showtab: Number(edata.tabindex),
-      showtabtype: edata.type
-    })
-  },
-  
-
-
 
   // 曲线走势图
   show: function (time, currentmoey, supportpeople, growthmoney, growthsupport) {

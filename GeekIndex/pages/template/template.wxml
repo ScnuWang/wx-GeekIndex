@@ -20,7 +20,7 @@
       <view class="product" bindtap="detailproduct" id="{{value.pkId}}">
             <!--点击图片跳转到详情页并将产品的编号传递-->
                   <view class="pic">
-                      <image style="width:130px;height:130px;" src="{{value.productImage}}" model="aspectFit" />
+                      <image style="width:130px;height:130px;padding-top: 3px;" src="{{value.productImage}}" model="aspectFit" />
                   </view>
               <view class="product-info">
                 <view class="text-info">
@@ -39,7 +39,7 @@
 <template name="productDetail">
       <view class="product">
               <view class="pic">
-                  <image style="width:130px;height:130px;" src="{{product.productImage}}" model="aspectFit" />
+                  <image style="width:130px;height:130px;padding-top: 3px;" src="{{product.productImage}}" model="aspectFit" />
               </view>
           <view class="product-info">
             <view class="text-info">
