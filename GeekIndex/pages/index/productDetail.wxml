@@ -2,23 +2,26 @@
     <import src="../template/template.wxml"/>
     <template is="productDetail" data="{{product}}"/>
 </view>
-<view class="swiper-tab">
- <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">产品走势</view>
- <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">竞争者</view>
- <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">行业比较</view>
-</view>
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
- <swiper-item>
+<!-- 如果产品走势没有数据则不展示 -->
+<view wx:if="{{len>0}}">
+  <view style="color:#f7982a;font-size: 16px;padding-left: 5%;padding-top: 8px;">产品走势：</view>
   <view class="charts">
-                <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-                <canvas canvas-id="suportchange" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-            </view>
- </swiper-item>
+        <canvas canvas-id="lineCanvas"  class="canvas"  bindtouchstart="touchHandler"></canvas>
+        <canvas canvas-id="suportchange"  class="canvas" bindtouchstart="touchHandler"></canvas>
+    </view>
+</view>
+<view class="swiper-tab">
+ <!--<view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">产品走势</view>-->
+ <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">竞争者</view>
+ <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">行业比较</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" bindchange="bindChange" >
+ <!--<swiper-item>
+ 
+ </swiper-item>-->
  <swiper-item>
-  <view>
-                  <import src="../template/template.wxml"/>
-                  <template is="productList" data="{{products}}"/>
-              </view>
+    <import src="../template/template.wxml"/>
+    <template is="productList" data="{{products}}"/>
  </swiper-item>
  <swiper-item>
   <view class="competitor">
@@ -27,7 +30,7 @@
       <view class="competitor-context">
         <view>同行业平均水平：{{catetorytstat.moneyAvg}}</view>
         <view>同行业最高水平：{{catetorytstat.moneyMax}}</view>
-        <view>同行业最低水平：{{catetorytstat.moneyMin}}</view>
+        <view>同行业最低水平：{{catetorytstat.moneyMin}}</view> 
       </view>
       <view class="competitor-tittle">项目完成率（%）</view>
       <view class="competitor-context">

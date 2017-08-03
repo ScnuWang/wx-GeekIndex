@@ -26,7 +26,7 @@ Page({
     growthmoney: [],
     // 当日净增支持人数
     growthsupport: [],
-    
+    len:0,
     // 页面配置  
     winWidth: 0,
     winHeight: 0,
@@ -45,16 +45,16 @@ Page({
 
   // 滑动切换tab 
   bindChange: function (e) {
-    var that = this;
-    that.setData({ currentTab: e.detail.current });
+    var page = this;
+    page.setData({ currentTab: e.detail.current });
   },
   // 点击tab切换 
   swichNav: function (e) {
-    var that = this;
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
+    var page = this;
+    if (page.data.currentTab === e.target.dataset.current) {
+      return true;
     } else {
-      that.setData({
+      page.setData({
         currentTab: e.target.dataset.current
       })
     }
@@ -122,7 +122,8 @@ Page({
           "currentmoey": currentmoey,
           "supportpeople": supportpeople,
           "growthmoney": growthmoney,
-          "growthsupport": growthsupport
+          "growthsupport": growthsupport,
+          "len": len
         });
         // console.log(time)
         if(len>0){

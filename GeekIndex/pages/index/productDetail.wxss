@@ -9,31 +9,36 @@ page{
 .product{
     display: flex;
     flex-direction: row;
-    border: 1px solid #ccc;
-    margin: 5px 10px;
-    box-shadow: 0 2px 5px #ccc;
+    border: 2rpx solid #ccc;
+    margin: 10rpx 20rpx;
+    box-shadow: 0 4rpx 10rpx #ccc;
     background-color: #fff;
-    padding-left: 5px;
+    padding-left: 10rpx;
 }
 .product-info{
-    padding-right: 10px;
+    padding-right: 20rpx;
 }
 .text-info{
+    display: flex;
+    flex-direction: column;
     font-size: 12px;
 	  color: #888;
-    padding-left: 5px;  
+    padding-left: 20rpx;  
 }
 
 .swiper-tab{
+  display: flex;
+  flex-direction: row;
   width: 100%; 
   border-bottom: 2rpx solid #f7982a; 
   text-align: center; 
   line-height: 80rpx;
 }
 .swiper-tab-list{
-  font-size: 30rpx; 
-  display: inline-block; 
-  width: 33%; 
+  font-size: 16px; 
+  display: flex;
+  justify-content: center;
+  width: 50%; 
   color: #777777; 
 }
 .on{
@@ -41,15 +46,15 @@ page{
   border-bottom: 5rpx solid #f7982a;
 }
 .swiper-box{ 
-  display: block;
-  height: 100%;
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  overflow: hidden;
+  height: 1500px;
  }
 .charts {
-    background-color: #fff;
+    background-color: #f6f8fa;
     min-height: 100%;
-    margin-right: 5px;
+    overflow: hidden;
 }
 .competitor {
    color:#2F4F4F;
@@ -76,6 +81,7 @@ page{
 }
 
 .canvas{
+   display: flex;
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px #ccc;
     background-color: #fff;

@@ -27,6 +27,8 @@
                   <view >产品名称：{{value.productName}}</view>
                   <view  wx:if="{{value.website==1}}">众筹平台：淘宝众筹</view >
                   <view  wx:if="{{value.website==2}}">众筹平台：京东众筹</view >
+                  <view  wx:if="{{value.website==7}}">众筹平台：苏宁众筹</view >
+                  <view  wx:if="{{value.website==15}}">众筹平台：小米众筹</view >
                   <view>众筹状态：{{value.productStatus}}</view>
                   <view>已筹金额：{{value.currMoney}}￥</view>
                   <view>支持人数：{{value.supportPerson}}</view>
@@ -46,8 +48,10 @@
               <!--产品名称-->
               <view >产品名称：{{product.productName}}</view>
               <!--众筹平台-->
-              <view  wx:if="{{product.website==1}}">众筹平台：淘宝众筹</view >
-              <view  wx:if="{{product.website==2}}">众筹平台：京东众筹</view >
+               <view  wx:if="{{value.website==1}}">众筹平台：淘宝众筹</view >
+                  <view  wx:if="{{value.website==2}}">众筹平台：京东众筹</view >
+                  <view  wx:if="{{value.website==7}}">众筹平台：苏宁众筹</view >
+                  <view  wx:if="{{value.website==15}}">众筹平台：小米众筹</view >
               <!--众筹状态-->
               <view>众筹状态：{{product.productStatus}}</view>
               <!--已筹金额-->

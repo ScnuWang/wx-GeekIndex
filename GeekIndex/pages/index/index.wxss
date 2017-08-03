@@ -2,6 +2,8 @@
 .content{
     background-color: #fff;
     min-height: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
 }
 
 page{
@@ -18,7 +20,7 @@ page{
     display: flex;
     flex-direction: row;
     border: 1px solid #ccc;
-    margin: 5px 20px;
+    margin: 10px 20px;
     box-shadow: 0 2px 5px #ccc;
     background-color: #fff;
     padding-left: 5px;
@@ -45,28 +47,23 @@ page{
 .image{
     width:20px;
     height: 20px;
-    padding-top: 35px;
+    padding-top: 45px;
 }
 .productimage{
-    width:30px;
-    height: 30px;
+    width:50px;
+    height: 50px;
     padding-top: 5px;
 }
 
 .text-info{
-    /*color:#000;
-    font-size: 12px;
-    line-height: 20px;
-    text-overflow: ellipsis;
-    flex-wrap: nowrap;*/
-    font-size: 12px;
+    font-size: 13px;
 	  color: #888;
 	  display: -webkit-box;
 	  -webkit-line-clamp: 1;
 	  overflow: hidden;
 	  text-overflow: ellipsis;
 	  -webkit-box-orient: vertical;
-    
+
 }
 
 .search{
